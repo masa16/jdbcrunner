@@ -16,5 +16,6 @@
 	<classpathentry kind="lib" path="libjdbc/postgresql-42.6.0.jar"/>
 	<classpathentry kind="lib" path="lib/commons-cli-1.5.0.jar"/>
 	<classpathentry kind="lib" path="lib/rhino-1.7.14.jar"/>
+	<classpathentry kind="lib" path="libjdbc/tsurugi-jdbc-0.3.0-SNAPSHOT-all.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

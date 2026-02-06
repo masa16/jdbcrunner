@@ -747,9 +747,17 @@ function createIndexPostgreSQL() {
 }
 
 function createIndexTsurugi() {
+    execute("CREATE INDEX district_ix1 ON district (d_w_id)");
     execute("CREATE INDEX customer_ix1 ON customer (c_w_id, c_d_id, c_last)");
-
+    execute("CREATE INDEX customer_ix2 ON customer (c_w_id, c_d_id)");
+    execute("CREATE INDEX history_ix1 ON history (h_c_w_id, h_c_d_id, h_c_id)");
+    execute("CREATE INDEX history_ix2 ON history (h_w_id, h_d_id)");
+    execute("CREATE INDEX stock_ix1 ON stock (s_w_id)");
+    execute("CREATE INDEX stock_ix2 ON stock (s_i_id)");
     execute("CREATE INDEX orders_ix1 ON orders (o_w_id, o_d_id, o_c_id)");
+    execute("CREATE INDEX new_orders_ix1 ON new_orders (no_w_id, no_d_id, no_o_id)");
+    execute("CREATE INDEX order_line_ix1 ON order_line (ol_w_id, ol_d_id, ol_o_id)");
+    execute("CREATE INDEX order_line_ix2 ON order_line (ol_supply_w_id, ol_i_id)");
 }
 
 function createForeignKeyOracle() {

@@ -636,11 +636,11 @@ function stockLevel() {
 
     var rc01 = query("SELECT /* S-01 */ /*+ USE_NL(ol s) */ COUNT(DISTINCT s.s_i_id) "
                    + "FROM district d "
-                   + "INNER JOIN order_line ol ON ol.ol_w_id = d.d_w_id AND ol.ol_d_id = d.d_id "
+                   + "INNER JOIN order_line ol ON ol.ol_w_id = $int AND ol.ol_d_id = $int "
                        + "AND ol.ol_o_id BETWEEN d.d_next_o_id - 20 AND d.d_next_o_id - 1 "
-                   + "INNER JOIN stock s ON s.s_w_id = ol.ol_w_id AND s.s_i_id = ol.ol_i_id "
+                   + "INNER JOIN stock s ON s.s_w_id = $int AND s.s_i_id = ol.ol_i_id "
                    + "WHERE d.d_w_id = $int AND d.d_id = $int AND s.s_quantity < $int",
-                   w_id, d_id, threshold);
+                   w_id, d_id, w_id, w_id, d_id, threshold);
 
     commit();
             return;
